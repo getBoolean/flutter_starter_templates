@@ -15,11 +15,12 @@ abstract class DatabaseUser with _$DatabaseUser {
   factory DatabaseUser.fromJson(Map<String, dynamic> json) =>
       _$DatabaseUserFromJson(json);
 
-  factory DatabaseUser.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {
+  factory DatabaseUser.fromDocumentSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> documentSnapshot) {
     return DatabaseUser(
       uid: documentSnapshot.id, // Did we plan to make the uid the document id?
-      email: documentSnapshot.data()["email"] as String,
-      name: documentSnapshot.data()["name"] as String,
+      email: documentSnapshot.data()['email'] as String,
+      name: documentSnapshot.data()['name'] as String,
     );
   }
 }

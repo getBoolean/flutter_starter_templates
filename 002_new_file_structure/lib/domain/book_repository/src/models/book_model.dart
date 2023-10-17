@@ -13,13 +13,15 @@ abstract class BookModel with _$BookModel {
     Uri coverImage,
   }) = _Book;
 
-  factory BookModel.fromDocumentSnapshot(DocumentSnapshot documentSnapshot) {
+  factory BookModel.fromDocumentSnapshot(
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot,
+  ) {
     return BookModel(
       id: documentSnapshot.id, // Did we plan to make the uid the document id?
-      title: documentSnapshot.data()["title"] as String,
-      authors: documentSnapshot.data()["authors"] as List<String>,
-      pageCount: documentSnapshot.data()["pageCount"] as int,
-      coverImage: documentSnapshot.data()["coverImage"] as Uri,
+      title: documentSnapshot.data()['title'] as String,
+      authors: documentSnapshot.data()['authors'] as List<String>,
+      pageCount: documentSnapshot.data()['pageCount'] as int,
+      coverImage: documentSnapshot.data()['coverImage'] as Uri,
     );
   }
 }

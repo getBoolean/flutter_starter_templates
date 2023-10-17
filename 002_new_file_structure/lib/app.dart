@@ -1,6 +1,7 @@
-import 'package:convene/config/palette.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'config/palette.dart';
 import 'pages/home/home.dart';
 import 'pages/splash/splash.dart';
 
@@ -9,6 +10,8 @@ class App extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   final _navigatorKey = GlobalKey<NavigatorState>();
+
+  App({Key key}) : super(key: key);
 
   NavigatorState get _navigator => _navigatorKey.currentState;
 
@@ -24,9 +27,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        buttonColor: Palette.darkerGrey,
         canvasColor: Palette.lightGrey,
-        accentColor: Palette.lightBlue,
         primaryColor: Palette.darkerGrey,
         buttonTheme: const ButtonThemeData(
           buttonColor: Palette.darkerGrey,
@@ -34,7 +35,7 @@ class App extends StatelessWidget {
         ),
         colorScheme: const ColorScheme.light(
           primary: Colors.black, //flat button text color
-        ),
+        ).copyWith(secondary: Palette.lightBlue),
       ),
       navigatorKey: _navigatorKey,
       builder: (context, child) {
@@ -57,9 +58,11 @@ class App extends StatelessWidget {
           },
         );
       },
-      onGenerateRoute: (_) => MaterialPageRoute<SplashPage>(builder: (context) {
-        return const SplashPage();
-      }),
+      onGenerateRoute: (_) => MaterialPageRoute<SplashPage>(
+        builder: (context) {
+          return const SplashPage();
+        },
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
-import 'package:user_repository/src/auth_repository.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import '../auth_repository.dart';
 
 /// Thrown if during the sign up process if a failure occurs.
 class SignUpFailure implements Exception {}

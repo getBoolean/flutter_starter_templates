@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -11,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Example File Structure"),
+        title: const Text('Example File Structure'),
       ),
       body: Center(
         child: Column(
@@ -19,18 +21,18 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             Text(
               counter.toString(),
-              style: TextStyle(fontSize: 40),
+              style: const TextStyle(fontSize: 40),
             ),
-            RaisedButton(
-              child: Text("increment"),
+            ElevatedButton(
+              child: const Text('increment'),
               onPressed: () {
                 setState(() {
                   counter++;
                 });
               },
             ),
-            RaisedButton(
-              child: Text("decrement"),
+            ElevatedButton(
+              child: const Text('decrement'),
               onPressed: () {
                 setState(() {
                   counter--;

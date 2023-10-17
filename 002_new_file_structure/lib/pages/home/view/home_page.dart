@@ -1,10 +1,11 @@
-import 'package:convene/pages/home/widgets/books.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/books.dart';
 
 /// If you want to use Hooks, you need to create a separate stateless widget for that,
 /// since for a drawer you need to have a stateful widget. Is there a better way around this?
 class HomePage extends StatefulWidget {
-  const HomePage();
+  const HomePage({Key key}) : super(key: key);
 
   static Route get route =>
       MaterialPageRoute<void>(builder: (_) => const HomePage());
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _homeScaffoldKey,
-      body: Center(
+      body: const Center(
         child: Books(),
       ),
     );
